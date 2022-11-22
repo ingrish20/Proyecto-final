@@ -1,37 +1,5 @@
-const mySql = require("mysql");
-const sqlServer = require("mssql");
-const db ="sqlServer";
 
-
-const executeQuery= async (query) =>
-{
-    var data="";
-
-    if (db==='sqlServer') {
-
-       await sqlServer.connect(sqlServerConfig);
-
-        var result = await sqlServer.query(query);
-
-        return result.recordset;
-         
-    }
-    else
-    {
-        var conect =  mySql.createConnection(mySqlConfig);
-
-        conect.query(query, function (error, results, fields) {
-            if (error)
-                throw error;
-    
-           data = results;
-        });
-    
-        conect.end(); 
-        return data;
-    }
-
-}
+const { executeQuery } = require("./db")
 
 const getProductosByIdTipoProducto =async(idTipo) => {
 
@@ -148,29 +116,7 @@ const getPedidosByIdPedido= async(idPedido) => {
   return resp
 }
 
-  const mySqlConfig= {
-    host : 'localhost',
-    database : 'empleados',
-    user : 'USUARIO',
-    password : 'PASS',
-}
 
-
-const sqlServerConfig = {
-    user: "test",
-    password: "123456",
-    database: "TiendaOnline",
-    server: 'AGRANDEMOV\\SQLEXPRESS',
-    pool: {
-      max: 10,
-      min: 0,
-      idleTimeoutMillis: 30000
-    },
-    options: {
-      encrypt: true, // for azure
-      trustServerCertificate: true // change to true for local dev / self-signed certs
-    }
-  }
 
 module.exports = {
   getProductosByIdTipoProducto,
