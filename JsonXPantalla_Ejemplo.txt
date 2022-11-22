@@ -1,0 +1,83 @@
+Pantalla 1 - Listado de tipos productos
+
+// http://localhost:8080/api/getTiposProductos
+
+{
+  "Message": "Resultado de busqueda",
+  "Result": [
+    {
+      "IdTipoProducto": 1,
+      "TipoProducto": "LIBROS",
+      "UrlImagenTipo": "https://gifs.eco.br/wp-content/uploads/2022/08/gifs-de-livros-29.gif",
+      "Activo": 1
+    },
+    {
+      "IdTipoProducto": 2,
+      "TipoProducto": "VIDEO JUEGOS",
+      "UrlImagenTipo": "https://i.gifer.com/origin/05/05d659e459c263e604e7f23619bc2266.gif",
+      "Activo": 1
+    }
+  ]
+}
+
+Pantalla 2 - Lista de productos x tipo
+
+// http://localhost:8080/api/getProductosByIdTipoProducto?idTipo=1
+
+{
+  "Message": "Resultado de busqueda",
+  "Result": [
+    {
+      "IdTipoProducto": 1,
+      "TipoProducto": "LIBROS",
+      "UrlImagenTipo": "https://gifs.eco.br/wp-content/uploads/2022/08/gifs-de-livros-29.gif",
+      "IdProducto": "1",
+      "NombreProducto": "HARRY POTTER Y LA PIEDRA FILOSOFAL | J.K. ROWLING",
+      "DescripcionProducto": "Fecha de publicación: 26 de junio de 1997",
+      "PrecioUnitario": 20,
+      "UrlImagen": "https://kbimages1-a.akamaihd.net/909b88f6-425d-4535-9925-8e9bcfa90f9b/353/569/90/False/harry-potter-y-la-piedra-filosofal-1.jpg",
+      "UrlImagenAgotado": "http://pckernelshop.com/wp-content/uploads/2016/07/agotado.png",
+      "Existencias": 10,
+      "IdValoracionProducto": "1",
+      "ValoracionPromedio": 4
+    },
+    {
+      "IdTipoProducto": 1,
+      "TipoProducto": "LIBROS",
+      "UrlImagenTipo": "https://gifs.eco.br/wp-content/uploads/2022/08/gifs-de-livros-29.gif",
+      "IdProducto": "5",
+      "NombreProducto": "PRODUCTO DE PRUEBA",
+      "DescripcionProducto": "Fecha de publicación: 26 de junio de 1997",
+      "PrecioUnitario": 20,
+      "UrlImagen": "https://kbimages1-a.akamaihd.net/909b88f6-425d-4535-9925-8e9bcfa90f9b/353/569/90/False/harry-potter-y-la-piedra-filosofal-1.jpg",
+      "UrlImagenAgotado": "http://pckernelshop.com/wp-content/uploads/2016/07/agotado.png",
+      "Existencias": 10,
+      "IdValoracionProducto": null,
+      "ValoracionPromedio": null
+    }
+  ]
+}
+
+Pantalla 3 - Detalle del producto seleccionado
+
+// http://localhost:8080/api/getProductoByIdProducto?idProducto=1
+
+{
+  "Message": "Resultado de busqueda",
+  "Result": [
+    {
+      "IdTipoProducto": 1,
+      "TipoProducto": "LIBROS",
+      "UrlImagenTipo": "https://gifs.eco.br/wp-content/uploads/2022/08/gifs-de-livros-29.gif",
+      "IdProducto": "1",
+      "NombreProducto": "HARRY POTTER Y LA PIEDRA FILOSOFAL | J.K. ROWLING",
+      "DescripcionProducto": "Fecha de publicación: 26 de junio de 1997",
+      "PrecioUnitario": 20,
+      "UrlImagen": "https://kbimages1-a.akamaihd.net/909b88f6-425d-4535-9925-8e9bcfa90f9b/353/569/90/False/harry-potter-y-la-piedra-filosofal-1.jpg",
+      "UrlImagenAgotado": "http://pckernelshop.com/wp-content/uploads/2016/07/agotado.png",
+      "Existencias": 10,
+      "IdValoracionProducto": "1",
+      "ValoracionPromedio": 4
+    }
+  ]
+}

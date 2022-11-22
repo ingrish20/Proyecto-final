@@ -1,0 +1,1 @@
+Levantar servicio en una nueva consola con el comando:  npm run server
