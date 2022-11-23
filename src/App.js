@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Prueba from './prueba.js';
+import Prueba from './Prueba.js';
 
 function App() {
   return (
