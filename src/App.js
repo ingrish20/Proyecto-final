@@ -1,22 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Prueba from './Prueba.js';
+import {
+  BrowserRouter,
+  Routes, // instead of "Switch"
+  Route,
+} from "react-router-dom";
+import Detalleproducto from './components/Detalleproducto';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> <Prueba></Prueba>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Header />
+
+    <Routes>
+      <Route path="/detalle/:id" element={<Detalleproducto />} />
+
+      <Route path="/Productos/" element={<Detalleproducto />} />
+
+    </Routes>
+    <Footer/>
+  </BrowserRouter>
+
   );
 }
 

@@ -117,6 +117,35 @@ const getPedidosByIdPedido= async(idPedido) => {
 }
 
 
+const guardarPedidoHeader= async(IdUsuario, Total, IdEstadoPedido) => {
+
+  const queryPedidos = `INSERT INTO pedidos (IdUsuario, Total, IdEstadoPedido) VALUES ( ${IdUsuario}, ${Total}, ${IdEstadoPedido})`
+
+  let resp = await executeQuery(queryPedidos);
+   
+  var id = resp.insertId;
+
+  return id;
+}
+
+const guardarPedidoDetalle= async(productos) => {
+
+  var listaId = [];
+
+  productos.forEach( async e => {
+    const queryPedidos = `INSERT INTO pedidosdetalle( IdPedido,IdProducto,Cantidad,PrecioUnitario) VALUES (${e.IdPedido}, ${e.IdProducto}, ${e.Cantidad}, ${e.PrecioUnitario})`
+    let resp = await executeQuery(queryPedidos);
+
+    var id = resp.insertId;
+
+    listaId.push({
+      IdItem: id
+    });
+
+  });
+
+  return listaId;
+}
 
 module.exports = {
   getProductosByIdTipoProducto,
@@ -126,5 +155,7 @@ module.exports = {
   getUsuariosByUsuario,
   getPedidosByIdPedido,
   getPedidosByIdUsuario,
-  getPedidosByUsuario
+  getPedidosByUsuario,
+  guardarPedidoHeader,
+  guardarPedidoDetalle
 }

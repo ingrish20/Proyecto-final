@@ -31,6 +31,7 @@ const sqlServerConfig = {
 
   const executeQuery= async (query) =>
 {
+
     var data="";
 
     if (dbActiva ==='sqlServer') {
@@ -55,7 +56,7 @@ const sqlServerConfig = {
               data = results;
   
               con.end();
-  
+
               resolve(data);
   
             });
