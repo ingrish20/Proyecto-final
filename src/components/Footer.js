@@ -5,7 +5,11 @@ const Footer = () => {
 
     <>
          <hr></hr>
-         <div>Footer: Aqui va todo el footer</div>
+         <div id="pie">Derechos Reservados.
+          <br></br>
+          Elaborado por Antonio Opico, Ingrish Perez, Luis Velasco y Diana Campos
+         </div>
+         
     </>
     
   )

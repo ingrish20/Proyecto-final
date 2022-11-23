@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import ReactStars from "react-rating-stars-component";
 
 
+
 const Detalleproducto = () => {
 
   let { id } = useParams();
@@ -23,6 +24,7 @@ const Detalleproducto = () => {
   
         if (data) {
           return ( <>
+          
           <label>Categoria: { data.TipoProducto }</label>
            <br></br>
             <label>Nombre {data.NombreProducto} </label>
@@ -32,7 +34,8 @@ const Detalleproducto = () => {
             <br></br>
             <label>Valoración: </label>
 
-            <ReactStars
+              <div id="valoracion">
+            <ReactStars 
                 count={5}
                 onChange={ratingChanged}
                 size={24}
@@ -41,10 +44,10 @@ const Detalleproducto = () => {
                 value={parseInt(data.ValoracionPromedio)}
                 edit = {true}
               />
-
+      </div>
             <br></br>
-
-            <img src={data.UrlImagen}></img>
+<br></br>
+            <img src={data.UrlImagen} id="productod"></img>
           </>
           )
         }

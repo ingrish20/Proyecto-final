@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  justify-content: center;
   
 }
 
@@ -39,13 +40,39 @@ background: linear-gradient(#340856, #efb810, #340856, #efb810);
   }
 }
 
-button {
-  border-radius: 35px;
+#Tituloprincipal {
+
+  background-color: #efb810;
+  font-size:35px;
   text-align: center;
-  align-items:initial;
-  justify-content: center;
-  padding: 15px 100px 25px 100px;
-  font-family: cursive;
-  font-size: 25px;
-  margin: 4px 2px;
+  align-items: center;
+  padding: auto;
+  color: #340856;
+
+}
+#valoracion {
+
+    display: inline-block;
+    padding: auto;
+    align-items:flex-end;
+  
+
+}
+
+label {
+
+  font-size: 20px;
+}
+
+#pie{
+
+  font-size: 20px;
+  background-color: #340856;
+  color: violet;
+}
+
+#productod {
+ 
+  width: auto;
+  height: 400px ;
 }

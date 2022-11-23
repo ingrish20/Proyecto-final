@@ -1,11 +1,12 @@
 import React from 'react'
 
+
 const Header = () => {
   return (
-    <>
-      <div>Header: Aqui va todo del header</div>
+    <div id="Tituloprincipal">
+      <div>Bienvenidos a LIDA'S STORE </div>
       <hr></hr>
-    </>
+    </div>
    
   )
 }
