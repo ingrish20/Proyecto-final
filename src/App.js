@@ -5,9 +5,9 @@ import {
   Routes, // instead of "Switch"
   Route,
 } from "react-router-dom";
-import Detalleproducto from './components/Detalleproducto';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Detalleproducto from './Components/Detalleproducto';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 function App() {
   return (
