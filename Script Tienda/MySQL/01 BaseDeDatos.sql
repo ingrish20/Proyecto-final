@@ -27,7 +27,7 @@ USE `tiendaonline` ;
 DROP TABLE IF EXISTS `tiendaonline`.`estadopedido` ;
 
 CREATE TABLE IF NOT EXISTS `tiendaonline`.`estadopedido` (
-  `IdEstadoPedido` INT NOT NULL,
+  `IdEstadoPedido` INT NOT NULL AUTO_INCREMENT ,
   `Estado` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`IdEstadoPedido`))
 ENGINE = InnoDB
@@ -41,7 +41,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `tiendaonline`.`pedidos` ;
 
 CREATE TABLE IF NOT EXISTS `tiendaonline`.`pedidos` (
-  `IdPedido` BIGINT NOT NULL,
+  `IdPedido` BIGINT NOT NULL AUTO_INCREMENT,
   `IdUsuario` INT NOT NULL,
   `Fecha` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Total` BIGINT NOT NULL,
@@ -64,7 +64,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `tiendaonline`.`pedidosdetalle` ;
 
 CREATE TABLE IF NOT EXISTS `tiendaonline`.`pedidosdetalle` (
-  `IdDetallePedido` BIGINT NOT NULL,
+  `IdDetallePedido` BIGINT NOT NULL AUTO_INCREMENT,
   `IdPedido` BIGINT NULL DEFAULT NULL,
   `IdProducto` BIGINT NOT NULL,
   `Cantidad` INT NOT NULL,
@@ -87,7 +87,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `tiendaonline`.`productos` ;
 
 CREATE TABLE IF NOT EXISTS `tiendaonline`.`productos` (
-  `IdProducto` BIGINT NOT NULL,
+  `IdProducto` BIGINT NOT NULL AUTO_INCREMENT,
   `NombreProducto` VARCHAR(500) NOT NULL,
   `DescripcionProducto` VARCHAR(500) NOT NULL,
   `PrecioUnitario` BIGINT NOT NULL,
@@ -111,7 +111,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `tiendaonline`.`tipoproductos` ;
 
 CREATE TABLE IF NOT EXISTS `tiendaonline`.`tipoproductos` (
-  `IdTipoProducto` INT NOT NULL,
+  `IdTipoProducto` INT NOT NULL AUTO_INCREMENT,
   `TipoProducto` VARCHAR(100) NOT NULL,
   `UrlImagenTipo` LONGTEXT NULL DEFAULT NULL,
   `Activo` INT NOT NULL,
@@ -127,7 +127,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `tiendaonline`.`usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `tiendaonline`.`usuarios` (
-  `IdUsuario` INT NOT NULL,
+  `IdUsuario` INT NOT NULL AUTO_INCREMENT,
   `Usuario` VARCHAR(50) NOT NULL,
   `Clave` VARCHAR(20) NULL DEFAULT NULL,
   `Nombre` VARCHAR(300) NOT NULL,
@@ -145,7 +145,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `tiendaonline`.`valoracionesproductos` ;
 
 CREATE TABLE IF NOT EXISTS `tiendaonline`.`valoracionesproductos` (
-  `IdValoracionProducto` BIGINT NOT NULL,
+  `IdValoracionProducto` BIGINT NOT NULL AUTO_INCREMENT,
   `IdProducto` BIGINT NOT NULL,
   `ValoracionPromedio` BIGINT NOT NULL,
   PRIMARY KEY (`IdValoracionProducto`),
@@ -163,7 +163,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 DROP TABLE IF EXISTS `tiendaonline`.`valoracionesproductosdetalle` ;
 
 CREATE TABLE IF NOT EXISTS `tiendaonline`.`valoracionesproductosdetalle` (
-  `IdDetalleValoracionProducto` BIGINT NOT NULL,
+  `IdDetalleValoracionProducto` BIGINT NOT NULL AUTO_INCREMENT,
   `IdValoracionProducto` BIGINT NOT NULL,
   `Fecha` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Valoracion` DECIMAL(18,2) NOT NULL DEFAULT '0.00',
