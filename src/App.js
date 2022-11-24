@@ -5,9 +5,10 @@ import {
   Routes, // instead of "Switch"
   Route,
 } from "react-router-dom";
-import Detalleproducto from './Components/Detalleproducto';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
+import Detalleproducto from './components/Detalleproducto';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Catalogoproducto from './components/Catalogoproducto';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
     <Routes>
       <Route path="/detalle/:id" element={<Detalleproducto />} />
 
-      <Route path="/Productos/" element={<Detalleproducto />} />
+      <Route path="/catalogo/productos/:idtipo" element={<Catalogoproducto />} />
 
     </Routes>
     <Footer/>
