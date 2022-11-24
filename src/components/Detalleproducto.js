@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactStars from "react-rating-stars-component";
+import { getTotalCarrito, agregarDetalleCarrito } from '../utils/funciones';
 
-
+let seleccionado = {};
 
 const Detalleproducto = () => {
 
@@ -18,6 +19,7 @@ const Detalleproducto = () => {
       .then(res => res.json())
       .then(res => {
          setData(res.Result[0])
+         seleccionado = res.Result[0]
       }).catch( err => console.error(err)); 
     
   }, []);
@@ -46,8 +48,11 @@ const Detalleproducto = () => {
               />
       </div>
             <br></br>
+            <button onClick={agregarCarrito}>Agregar al Carrito</button>
 <br></br>
             <img src={data.UrlImagen} id="productod"></img>
+
+            
           </>
           )
         }
@@ -69,5 +74,8 @@ const ratingChanged = () => {
 
 }
 
+const agregarCarrito = () => {
+  agregarDetalleCarrito(seleccionado)
+}
 
 export default Detalleproducto

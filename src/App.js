@@ -9,6 +9,7 @@ import Detalleproducto from './components/Detalleproducto';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Catalogoproducto from './components/Catalogoproducto';
+import Carritodetalle from "./components/Carritodetalle";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
       <Route path="/detalle/:id" element={<Detalleproducto />} />
 
       <Route path="/catalogo/productos/:idtipo" element={<Catalogoproducto />} />
+
+      <Route path="/carrito/" element={<Carritodetalle />} />
 
     </Routes>
     <Footer/>

@@ -129,7 +129,7 @@ const guardarPedidoHeader= async(IdUsuario, Total, IdEstadoPedido) => {
 }
 
 const guardarPedidoDetalle= async(productos) => {
-
+console.log(productos)
   var listaId = [];
 
   productos.forEach( async e => {
