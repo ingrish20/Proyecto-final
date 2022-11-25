@@ -49,6 +49,8 @@ function App() {
 
       <Route path="/" element={<Paginaprincipal/>} />
 
+      <Route path='/productos/:idTipo' element={<ProductosTipo/>} />
+
     </Routes>
     <Footer/>
   </BrowserRouter>
