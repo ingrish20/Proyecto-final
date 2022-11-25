@@ -19,7 +19,7 @@ const Catalogoproducto = (props) => {
     idProducto = 0;
   }
 
-  console.log(idProducto);
+  console.log(idProducto)
 
   let {contador} = props;
 
@@ -67,22 +67,10 @@ const Catalogoproducto = (props) => {
         ></input>
         <br></br>
         <label>Existencias: </label>
-        <input
-          value={data.Existencias}
-          onChange={(e) => setData({ ...data, Existencias: e.target.value })}
-          type="text"
-          name="DescripcionProducto"
-        ></input>
+        <input value={data.Existencias} onChange={(e) => setData({ ...data, Existencias: e.target.value })} type="text" name="DescripcionProducto"></input>
         <br></br>
         <label> URL de imagen del producto </label>
-        <input
-          id="myURL"
-          name="myURL"
-          type="url"
-          placeholder="http://www.example.com"
-          value={data.UrlImagen}
-          onChange={(e) => setData({ ...data, UrlImagen: e.target.value })}
-        ></input>
+        <input id="myURL" name="myURL" type="url" placeholder="http://www.example.com" value={data.UrlImagen} onChange={(e) => setData({ ...data, UrlImagen: e.target.value })}></input>
         <br></br>
         <br></br>
         <button id="agregar" onClick={guardar}>Agregar</button>
