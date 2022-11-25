@@ -19,7 +19,7 @@ const Header = () => {
       <div id="Tituloprincipal">
       <div>Bienvenidos a LIDA'S STORE </div>
      
-      
+      <div class="container"></div>      
 
       <hr></hr>
 
