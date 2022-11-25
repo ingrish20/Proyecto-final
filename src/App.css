@@ -44,12 +44,17 @@ background: linear-gradient(#340856, #efb810, #340856, #efb810);
 
   background-color: #efb810;
   font-size:35px;
-  text-align: center;
-  align-items: center;
+  text-align:unset;
+  align-items:baseline;
   padding: auto;
   color: #340856;
+  font-family: Franklin Gothic Medium;
+  
 
 }
+
+
+
 #valoracion {
 
     display: inline-block;
@@ -69,6 +74,7 @@ label {
   font-size: 20px;
   background-color: #340856;
   color: violet;
+  
 }
 
 #productod {
@@ -97,11 +103,82 @@ label {
 
 #informacion {
 
-  font-size: 30px;
-  color: aliceblue;
+  font-size: 25px;
+  color: gold;
   font-stretch: expanded;
   font-weight: bold;
   display: inline;
+  justify-content: flex-start;
 
 
 }
+
+  
+
+#enlace{
+
+  font-size: 25px;
+  color: #efb810;
+  margin-bottom: 5%;
+  float:inline-start;
+  display: block;
+
+  
+}
+
+.btn {
+  background-color: goldenrod;
+  color: #340856;
+  box-shadow: 25px 20ox;
+  font-size: 25px;
+  border-radius: 60px;
+  
+}
+
+
+#car {
+
+  position: absolute;
+  top: 29px;
+  left: 20px;
+ 
+}
+
+#detalle1 {
+
+  font-size: 50px;
+}
+
+#detalle2{
+
+  background-color: #1b003a;
+  font-size: 25px;
+  color: goldenrod;
+
+}
+
+#porden{
+       
+  background-color: goldenrod;
+    color: #340856;
+    box-shadow: 25px 20ox;
+    font-size: 35px;
+    border-radius: 60px;
+
+}
+
+.tablecarrito{
+
+  background-color:#53066a;
+  margin:auto;
+  border-radius: 15px solid goldenrod;
+  border-collapse: separate;
+  font-size: 25px;
+  
+}
+
+.table th td {
+
+  border: px solid goldenrod;
+}
+

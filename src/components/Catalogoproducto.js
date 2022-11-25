@@ -36,7 +36,7 @@ const Catalogoproducto = () => {
           name="NombreProducto"
         ></input>
         <br></br>
-        <label>Precio unitario: </label>
+        <label>Precio unitario: $ </label>
         <input
           value={data.PrecioUnitario}
           onChange={(e) => setData({ ...data, PrecioUnitario: e.target.value })}
