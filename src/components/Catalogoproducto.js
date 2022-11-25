@@ -22,11 +22,9 @@ const Catalogoproducto = (props) => {
 
   console.log(idProducto)
 
-      }
+      
 
-  
-
-  return (
+ return (
     <>
       <h1 id="titulo2">Catálogo de Productos</h1>
 
