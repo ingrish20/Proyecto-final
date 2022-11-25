@@ -147,6 +147,76 @@ console.log(productos)
   return listaId;
 }
 
+const agregarProducto= async( IdTipoProducto, NombreProducto, DescripcionProducto, PrecioUnitario,
+  UrlImagen, UrlImagenAgotado, Existencias) => {
+
+      const queryPedidos = `INSERT INTO productos
+      (NombreProducto,
+      DescripcionProducto,
+      PrecioUnitario,
+      UrlImagen,
+      UrlImagenAgotado,
+      Existencias,
+      Activo,
+      IdTipoProducto)
+      VALUES
+      ('${NombreProducto}',
+      '${DescripcionProducto}',
+      ${PrecioUnitario},
+      '${UrlImagen}',
+      '${UrlImagenAgotado}',
+      ${Existencias},
+      1,
+      ${IdTipoProducto})`
+
+      console.log("Query", queryPedidos);
+      let resp = await executeQuery(queryPedidos);
+        console.log("resp", resp)
+      var id = resp.insertId;
+  
+    return id;
+  }
+
+  const actualizarProducto= async(IdTipoProducto,
+    IdProducto,
+    NombreProducto,
+    DescripcionProducto,
+    PrecioUnitario,
+    UrlImagen,
+    UrlImagenAgotado,
+    Existencias) => {
+
+     const queryPedidos = `update productos
+     set
+     NombreProducto='${NombreProducto}',
+     DescripcionProducto='${DescripcionProducto}',
+     PrecioUnitario=${PrecioUnitario},
+     UrlImagen='${UrlImagen}',
+     UrlImagenAgotado='${UrlImagenAgotado}',
+     Existencias=${Existencias},
+     IdTipoProducto=${IdTipoProducto}
+      where IdProducto = ${IdProducto}`
+
+     let resp = await executeQuery(queryPedidos);
+ 
+     var filas = resp.affectedRows;
+ 
+   return filas;
+ }
+
+ const eliminarProducto= async(IdProducto) => {
+
+   const queryPedidos = `delete from productos where IdProducto=${IdProducto}` 
+
+   let resp = await executeQuery(queryPedidos);
+
+   console.log("resp",resp)
+
+   var filas = resp.affectedRows;
+
+ return filas;
+}
+
 module.exports = {
   getProductosByIdTipoProducto,
   getProductoByIdProducto,
@@ -157,5 +227,8 @@ module.exports = {
   getPedidosByIdUsuario,
   getPedidosByUsuario,
   guardarPedidoHeader,
-  guardarPedidoDetalle
+  guardarPedidoDetalle,
+  agregarProducto,
+  actualizarProducto,
+  eliminarProducto
 }

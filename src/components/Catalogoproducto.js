@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-//"IdTipoProducto": 0,
-//    "TipoProducto": "LIBROS",
-//"UrlImagenTipo": "",
-// http://pckernelshop.com/wp-content/uploads/2016/07/agotado.png
-
 let producto = {
+  IdTipoProducto: 1,
   IdProducto: "0",
-  NombreProducto: "Alex",
+  NombreProducto: "",
   DescripcionProducto: "",
   PrecioUnitario: 0,
   UrlImagen: "",
   UrlImagenAgotado: "",
   Existencias: 0,
 };
-const Catalogoproducto = () => {
-  let { opcion, id } = useParams();
+
+const Catalogoproducto = (props) => {
+  let { opcion, idProducto } = useParams();
+
+  if (idProducto === undefined) {
+    idProducto = 0;
+  }
+
+  console.log(idProducto);
+
+  let {contador} = props;
 
   const [data, setData] = useState(producto);
   console.log(data);
@@ -27,6 +32,13 @@ const Catalogoproducto = () => {
       <h2> Por favor ingresa la información requerida</h2>
 
       <div id="informacion">
+      <select name="tipoProducto" value={data.IdTipoProducto ==1 ? "1" : "2" }
+        onChange={e => setData({...data,IdTipoProducto: parseInt(e.target.value)})}
+      >
+        <option value="1">LIBROS</option>
+        <option value="2">VIDEO JUEGOS</option>
+      </select>
+
         <br></br>
         <label>Nombre del producto </label>
         <input
@@ -36,7 +48,7 @@ const Catalogoproducto = () => {
           name="NombreProducto"
         ></input>
         <br></br>
-        <label>Precio unitario: $ </label>
+        <label>Precio unitario: </label>
         <input
           value={data.PrecioUnitario}
           onChange={(e) => setData({ ...data, PrecioUnitario: e.target.value })}
@@ -68,15 +80,31 @@ const Catalogoproducto = () => {
           name="myURL"
           type="url"
           placeholder="http://www.example.com"
+          value={data.UrlImagen}
+          onChange={(e) => setData({ ...data, UrlImagen: e.target.value })}
         ></input>
         <br></br>
         <br></br>
-        <button type="submit" id="agregar">Agregar</button>
+        <button id="agregar" onClick={guardar}>Agregar</button>
 
-        <button type="cancel" id="cancelar"> Cancelar</button>
+        <button type="cancel" onClick={cancelar} id="cancelar"> Cancelar</button>
       </div>
     </>
   );
+
+  function guardar(){
+    if (opcion==="m") {
+      
+    } else if(opcion ==="a"){
+      
+    } else if (opcion === "e") {
+      
+    }
+  }
+
+  function cancelar(){
+    setData(producto)
+  }
 };
 
 export default Catalogoproducto;

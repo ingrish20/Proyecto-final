@@ -41,7 +41,7 @@ function App() {
     <Routes>
       <Route path="/detalle/:id" element={<Detalleproducto contador={getContador} />} />
 
-      <Route path="/catalogo/productos/:idtipo/:idProducto" element={<Catalogoproducto />} />
+      <Route path="/catalogo/productos/:opcion/:idProducto" element={<Catalogoproducto />} />
 
       <Route path="/carrito/" element={<Carritodetalle />} />
 

@@ -54,6 +54,7 @@ const sqlServerConfig = {
             con.query(query, function (error, results, fields) {
 
               data = results;
+              console.log("ERROR_DB", error)
   
               con.end();
 

@@ -9,7 +9,10 @@ const {
         getPedidosByIdUsuario,
         getPedidosByUsuario,
         guardarPedidoHeader,
-        guardarPedidoDetalle
+        guardarPedidoDetalle,
+        agregarProducto,
+        actualizarProducto,
+        eliminarProducto
     } = require("../db/sql");
 
 const express = require('express');
@@ -204,6 +207,83 @@ router.post('/guardarPedidoDetalle', async (req, res) => {
 });
 
 
+router.post('/agregarProducto', async (req, res) => {
+    try{
+
+        console.log("BODY", req.body)
+
+        let {IdTipoProducto,
+            NombreProducto,
+            DescripcionProducto,
+            PrecioUnitario,
+            UrlImagen,
+            UrlImagenAgotado,
+            Existencias } = req.body;
+
+        //{IdUsuario, Total, IdEstadoPedido}
+
+        var id = await agregarProducto(IdTipoProducto,NombreProducto, DescripcionProducto,
+                    PrecioUnitario, UrlImagen, UrlImagenAgotado, Existencias );
+
+        if (id>0) {
+            res.send({  Message: 'Producto registrado', Result: {idProducto: id} });
+        } else {
+            res.send({  Message: "No se guardo el producto", Result: [] });
+        }
+       
+    } catch (err) {
+        console.log("ERROR", err)
+        res.send({  Message: 'Error en la peticion',  Result: [] });
+    }
+});
+
+router.post('/actualizarProducto', async (req, res) => {
+    try{
+
+        let {IdTipoProducto,
+            IdProducto,
+            NombreProducto,
+            DescripcionProducto,
+            PrecioUnitario,
+            UrlImagen,
+            UrlImagenAgotado,
+            Existencias } = req.body;
+
+        //{IdUsuario, Total, IdEstadoPedido}
+
+        var filasAfectadas = await actualizarProducto(IdTipoProducto,IdProducto,NombreProducto, DescripcionProducto,
+                    PrecioUnitario, UrlImagen, UrlImagenAgotado, Existencias );
+
+        if (filasAfectadas>0) {
+            res.send({  Message: 'Producto actualizado', Result: {filasAfectadas: filasAfectadas} });
+        } else {
+            res.send({  Message: "No se actualizo el producto", Result: [] });
+        }
+       
+    } catch (err) {
+        res.send({  Message: 'Error en la peticion',  Result: [] });
+    }
+});
+
+router.post('/eliminarProducto', async (req, res) => {
+    try{
+
+        let {IdProducto} = req.body;
+
+        //{IdUsuario, Total, IdEstadoPedido}
+
+        var filasAfectadas = await eliminarProducto(IdProducto);
+
+        if (filasAfectadas>0) {
+            res.send({  Message: 'Producto eliminado', Result: {FilasAfectadas: filasAfectadas} });
+        } else {
+            res.send({  Message: "No se elimino el producto", Result: [] });
+        }
+       
+    } catch (err) {
+        res.send({  Message: 'Error en la peticion',  Result: [] });
+    }
+});
 
 
 module.exports = router;
