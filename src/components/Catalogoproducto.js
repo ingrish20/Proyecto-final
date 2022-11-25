@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import {
+  agregarProducto,
+  modificarProducto,
+  EliminarProducto,
+  consultarProducto
+} from "../utils/crudProducto.js";
 
 let producto = {
   IdTipoProducto: 1,
@@ -21,14 +27,18 @@ const Catalogoproducto = (props) => {
   }
 
   useEffect(() => {
-      
-    if(opcion !=="agregar"){
-      if (idProducto>0) {
+    if (opcion !== "agregar") {
+      if (idProducto > 0) {
+        var url = "http://localhost:8080/api/getProductoByIdProducto?idProducto=" + idProducto;
 
+        fetch(url)
+        .then(res => res.json())
+        .then(res => {
+           setData(res.Result[0])
+        }).catch( err => console.error(err)); 
       }
-    } 
-  }, [])
-  
+    }
+  }, []);
 
   return (
     <>
@@ -37,12 +47,16 @@ const Catalogoproducto = (props) => {
       <h2> Por favor ingresa la información requerida</h2>
 
       <div id="informacion">
-      <select name="tipoProducto" value={data.IdTipoProducto ==1 ? "1" : "2" }
-        onChange={e => setData({...data,IdTipoProducto: parseInt(e.target.value)})}
-      >
-        <option value="1">LIBROS</option>
-        <option value="2">VIDEO JUEGOS</option>
-      </select>
+        <select
+          name="tipoProducto"
+          value={data.IdTipoProducto == 1 ? "1" : "2"}
+          onChange={(e) =>
+            setData({ ...data, IdTipoProducto: parseInt(e.target.value) })
+          }
+        >
+          <option value="1">LIBROS</option>
+          <option value="2">VIDEO JUEGOS</option>
+        </select>
 
         <br></br>
         <label>Nombre del producto </label>
@@ -90,56 +104,70 @@ const Catalogoproducto = (props) => {
         ></input>
         <br></br>
         <br></br>
-        <button id="agregar" onClick={guardar}>Agregar</button>
+        <button id="agregar" onClick={guardar}>
+          Agregar
+        </button>
 
-        <button type="cancel" onClick={cancelar} id="cancelar"> Cancelar</button>
+        <button type="cancel" onClick={cancelar} id="cancelar">
+          {" "}
+          Cancelar
+        </button>
       </div>
     </>
   );
 
-  function guardar(){
-    if (opcion==="modificar") {
-      
-    } else if(opcion ==="agregar"){
+  async function guardar() {
+    if (opcion === "modificar") {
+      const productoModificado = {
+        IdProducto: data.IdProducto ,
+        IdTipoProducto: data.IdTipoProducto ,
+        NombreProducto: data.NombreProducto,
+        DescripcionProducto: data.DescripcionProducto,
+        PrecioUnitario: data.PrecioUnitario ,
+        UrlImagen: data.UrlImagen ,
+        UrlImagenAgotado: "http://pckernelshop.com/wp-content/uploads/2016/07/agotado.png" ,
+        Existencias: data.Existencias
+      };
 
-        console.log(data)
-        
+      let msg =await modificarProducto(productoModificado);
+
+      alert(msg);
+      
+      setData(producto);
+
+    } else if (opcion === "agregar") {
+
       const productoNuevo = {
         IdTipoProducto: data.IdTipoProducto,
         NombreProducto: data.NombreProducto,
         DescripcionProducto: data.DescripcionProducto,
-        PrecioUnitario: data.PrecioUnitario ,
+        PrecioUnitario: data.PrecioUnitario,
         UrlImagen: data.UrlImagen,
-        UrlImagenAgotado: "http://pckernelshop.com/wp-content/uploads/2016/07/agotado.png",
-        Existencias: data.Existencias 
-    }
+        UrlImagenAgotado:
+          "http://pckernelshop.com/wp-content/uploads/2016/07/agotado.png",
+        Existencias: data.Existencias,
+      };
 
-      fetch("http://localhost:8080/api/agregarProducto", {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(productoNuevo),
-      })
-        .then(function (res) {
-          return res.json();
-        })
-        .then(function (res) {
-          console.log(res)
-        })
-        .catch(function (res) {
-          console.log("Error", res);
-        });
+      let msg =await agregarProducto(productoNuevo);
 
+      alert(msg);
+
+      setData(producto);
 
     } else if (opcion === "eliminar") {
+
+      let idProducto = data.IdProducto;
+
+      let msg =await EliminarProducto(idProducto);
+
+      alert(msg);
       
+      setData(producto);
     }
   }
 
-  function cancelar(){
-    setData(producto)
+  function cancelar() {
+    setData(producto);
   }
 };
 
