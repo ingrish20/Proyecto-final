@@ -11,6 +11,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Catalogoproducto from './components/Catalogoproducto';
 import Carritodetalle from "./components/Carritodetalle";
+import ProductosTipo from './components/ProductosTipo';
 import { getTotalCarrito } from './utils/funciones'; 
 
 function App() {
@@ -44,6 +45,8 @@ function App() {
       <Route path="/catalogo/productos/:opcion/:idProducto" element={<Catalogoproducto />} />
 
       <Route path="/carrito/" element={<Carritodetalle />} />
+
+      <Route path="/productos/:idTipo" element={<ProductosTipo />} />
 
     </Routes>
     <Footer/>
