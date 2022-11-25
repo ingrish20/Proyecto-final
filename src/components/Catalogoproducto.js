@@ -94,7 +94,7 @@ const Catalogoproducto = (props) => {
         <input id="myURL" name="myURL" type="url" placeholder="http://www.example.com" value={data.UrlImagen} onChange={(e) => setData({ ...data, UrlImagen: e.target.value })}></input>
         <br></br>
         <br></br>
-        <button id="agregar" onClick={guardar}>
+        <button id="guardar" onClick={guardar}>
           Agregar
         </button>
 
