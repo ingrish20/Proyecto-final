@@ -182,3 +182,18 @@ label {
   border: px solid goldenrod;
 }
 
+div .card {
+
+  
+  font-size: 25px;
+  padding-bottom: 25px;
+  margin:auto;  
+  background: #53066a;
+ 
+  
+ 
+}
+
+a{
+  color: goldenrod;
+}

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import Detalleproducto from './components/Detalleproducto';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Paginaprincipal from './components/Paginaprincipal';
 import Catalogoproducto from './components/Catalogoproducto';
 import Carritodetalle from "./components/Carritodetalle";
 import { getTotalCarrito } from './utils/funciones'; 
@@ -44,6 +45,8 @@ function App() {
       <Route path="/catalogo/productos/:opcion/:idProducto" element={<Catalogoproducto />} />
 
       <Route path="/carrito/" element={<Carritodetalle />} />
+
+      <Route path="/" element={<Paginaprincipal/>} />
 
     </Routes>
     <Footer/>
