@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import Paginaprincipal from './components/Paginaprincipal';
 import Catalogoproducto from './components/Catalogoproducto';
 import Carritodetalle from "./components/Carritodetalle";
+import ProductosTipo from './components/ProductosTipo';
 import { getTotalCarrito } from './utils/funciones'; 
 
 function App() {
