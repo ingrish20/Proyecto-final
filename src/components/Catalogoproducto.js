@@ -14,17 +14,22 @@ let producto = {
 
 const Catalogoproducto = (props) => {
   let { opcion, idProducto } = useParams();
+  const [data, setData] = useState(producto);
 
   if (idProducto === undefined) {
     idProducto = 0;
   }
 
-  console.log(idProducto);
+  useEffect(() => {
+      
+    if(opcion !=="agregar"){
+      if (idProducto>0) {
 
-  let {contador} = props;
+      }
+    } 
+  }, [])
+  
 
-  const [data, setData] = useState(producto);
-  console.log(data);
   return (
     <>
       <h1 id="titulo2">Catálogo de Productos</h1>
@@ -93,11 +98,42 @@ const Catalogoproducto = (props) => {
   );
 
   function guardar(){
-    if (opcion==="m") {
+    if (opcion==="modificar") {
       
-    } else if(opcion ==="a"){
-      
-    } else if (opcion === "e") {
+    } else if(opcion ==="agregar"){
+
+        console.log(data)
+        
+      const productoNuevo = {
+        IdTipoProducto: data.IdTipoProducto,
+        NombreProducto: data.NombreProducto,
+        DescripcionProducto: data.DescripcionProducto,
+        PrecioUnitario: data.PrecioUnitario ,
+        UrlImagen: data.UrlImagen,
+        UrlImagenAgotado: "http://pckernelshop.com/wp-content/uploads/2016/07/agotado.png",
+        Existencias: data.Existencias 
+    }
+
+      fetch("http://localhost:8080/api/agregarProducto", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(productoNuevo),
+      })
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (res) {
+          console.log(res)
+        })
+        .catch(function (res) {
+          console.log("Error", res);
+        });
+
+
+    } else if (opcion === "eliminar") {
       
     }
   }
