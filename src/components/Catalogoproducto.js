@@ -43,68 +43,80 @@ const Catalogoproducto = (props) => {
 
       
  return (
-    <>
-      <h1 id="titulo2">Catálogo de Productos</h1>
+   <>
+     <h1 id="titulo2">Catálogo de Productos</h1>
 
-      <h2> Por favor ingresa la información requerida</h2>
+     <h2> Por favor ingresa la información requerida</h2>
 
-      <div id="informacion">
-        <select
-          name="tipoProducto"
-          value={data.IdTipoProducto == 1 ? "1" : "2"}
-          onChange={(e) =>
-            setData({ ...data, IdTipoProducto: parseInt(e.target.value) })
-          }
-        >
-          <option value="1">LIBROS</option>
-          <option value="2">VIDEO JUEGOS</option>
-        </select>
+     <div id="informacion">
+       <select
+         name="tipoProducto"
+         value={data.IdTipoProducto == 1 ? "1" : "2"}
+         onChange={(e) =>
+           setData({ ...data, IdTipoProducto: parseInt(e.target.value) })
+         }
+       >
+         <option value="1">LIBROS</option>
+         <option value="2">VIDEO JUEGOS</option>
+       </select>
 
-        <br></br>
-        <label>Nombre del producto </label>
-        <input
-          value={data.NombreProducto}
-          onChange={(e) => setData({ ...data, NombreProducto: e.target.value })}
-          type="text"
-          name="NombreProducto"
-        ></input>
-        <br></br>
-        <label>Precio unitario: </label>
-        <input
-          value={data.PrecioUnitario}
-          onChange={(e) => setData({ ...data, PrecioUnitario: e.target.value })}
-          type="text"
-          name="PrecioUnitario"
-        ></input>
-        <br></br>
-        <label>Descripción: </label>
-        <input
-          value={data.DescripcionProducto}
-          onChange={(e) =>
-            setData({ ...data, DescripcionProducto: e.target.value })
-          }
-          type="text"
-          name="DescripcionProducto"
-        ></input>
-        <br></br>
-        <label>Existencias: </label>
-        <input value={data.Existencias} onChange={(e) => setData({ ...data, Existencias: e.target.value })} type="text" name="DescripcionProducto"></input>
-        <br></br>
-        <label> URL de imagen del producto </label>
-        <input id="myURL" name="myURL" type="url" placeholder="http://www.example.com" value={data.UrlImagen} onChange={(e) => setData({ ...data, UrlImagen: e.target.value })}></input>
-        <br></br>
-        <br></br>
-        <button id="guardar" onClick={guardar}>
-          Agregar
-        </button>
+       <br></br>
+       <label>Nombre del producto </label>
+       <input
+         value={data.NombreProducto}
+         onChange={(e) => setData({ ...data, NombreProducto: e.target.value })}
+         type="text"
+         name="NombreProducto"
+       ></input>
+       <br></br>
+       <label>Precio unitario: </label>
+       <input
+         value={data.PrecioUnitario}
+         onChange={(e) => setData({ ...data, PrecioUnitario: e.target.value })}
+         type="text"
+         name="PrecioUnitario"
+       ></input>
+       <br></br>
+       <label>Descripción: </label>
+       <input
+         value={data.DescripcionProducto}
+         onChange={(e) =>
+           setData({ ...data, DescripcionProducto: e.target.value })
+         }
+         type="text"
+         name="DescripcionProducto"
+       ></input>
+       <br></br>
+       <label>Existencias: </label>
+       <input
+         value={data.Existencias}
+         onChange={(e) => setData({ ...data, Existencias: e.target.value })}
+         type="text"
+         name="DescripcionProducto"
+       ></input>
+       <br></br>
+       <label> URL de imagen del producto </label>
+       <input
+         id="myURL"
+         name="myURL"
+         type="url"
+         placeholder="http://www.example.com"
+         value={data.UrlImagen}
+         onChange={(e) => setData({ ...data, UrlImagen: e.target.value })}
+       ></input>
+       <br></br>
+       <br></br>
+       <button id="porden" onClick={guardar}>
+         Guardar
+       </button>
 
-        <button type="cancel" onClick={cancelar} id="cancelar">
-          {" "}
-          Cancelar
-        </button>
-      </div>
-    </>
-  );
+       <button type="cancel" onClick={cancelar} id="porden">  
+         {" "}
+         Cancelar
+       </button>
+     </div>
+   </>
+ );
 
   async function guardar() {
     if (opcion === "modificar") {
