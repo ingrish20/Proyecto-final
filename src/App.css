@@ -189,11 +189,30 @@ div .card {
   padding-bottom: 25px;
   margin:auto;  
   background: #53066a;
- 
-  
+
  
 }
 
 a{
   color: goldenrod;
+}
+
+#guardar {
+
+  background-color: goldenrod;
+  color: #340856;
+  box-shadow: 25px 20ox;
+  font-size: 35px;
+  border-radius: 60px;
+
+}
+
+#cancel {
+
+  background-color: goldenrod;
+  color: #340856;
+  box-shadow: 25px 20ox;
+  font-size: 35px;
+  border-radius: 60px;
+
 }

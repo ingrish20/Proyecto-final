@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
-import {
-  consultarProducto
-} from "../utils/crudProducto.js";
+import {consultarProducto} from "../utils/crudProducto.js";
+import Card from "react-bootstrap/Card";
 
-
+const urlDetalle = "http://localhost:3000/detalle/";
 const productos = [];
 
 const ProductosTipo = () => {
@@ -27,18 +26,27 @@ const ProductosTipo = () => {
     
 
   return (
-
     <>
-        <div>Productos</div>
-          {productos.map((s, i) => (
-            <div>
-                
-            </div>
-          ))}
+      <div>Productos</div>
+      {
+        data.map((s, i) => (
+          <Card >
+            <Card.Img
+              variant="top"
+              src={s.UrlImagen}
+              height="150px"
+            />
+            <Card.Body>
+              <Card.Title>{s.NombreProducto}</Card.Title>
+              <Card.Text>
+               { s.DescripcionProducto}
+              </Card.Text>
+              <a href={urlDetalle + s.IdProducto} > Entrar </a>
+            </Card.Body>
+          </Card>
+      ))}
     </>
-
-
-  )
+  );
 }
 
 export default ProductosTipo
